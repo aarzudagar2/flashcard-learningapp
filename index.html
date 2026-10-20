@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple interactive flashcard learning app.">
+  <title>Recall — Flashcard Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">R</span><span>Recall</span></div>
+      <span class="tag">FLASHCARD STUDIO</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">LEARN • REVIEW • REMEMBER</p>
+      <h1>Make knowledge <em>stick.</em></h1>
+      <p class="subtitle">Study a little. Remember a lot. Flip a card to reveal the answer.</p>
+    </section>
+
+    <section class="workspace">
+      <aside class="sidebar">
+        <div class="section-heading"><h2>Your deck</h2><span id="deck-count">10 cards</span></div>
+        <label for="category-select" class="field-label">Choose a topic</label>
+        <select id="category-select">
+          <option value="Python Basics">Python Basics</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Study Skills">Study Skills</option>
+        </select>
+        <div class="deck-note">
+          <span class="note-icon">✦</span>
+          <div><strong>Active recall</strong><p>Try to answer before flipping the card.</p></div>
+        </div>
+        <div class="progress-block">
+          <div class="progress-label"><span>Session progress</span><strong id="progress-text">1 / 10</strong></div>
+          <div class="progress-track"><div id="progress-bar"></div></div>
+        </div>
+        <button id="shuffle-btn" class="button secondary full">↻ Shuffle cards</button>
+        <button id="reset-btn" class="text-button full">Reset session</button>
+      </aside>
+
+      <section class="study-area">
+        <div class="study-topline">
+          <span id="topic-label">PYTHON BASICS</span>
+          <span id="card-number">CARD 01</span>
+        </div>
+        <button id="flashcard" class="flashcard" aria-label="Flip flashcard">
+          <span class="card-top"><span id="side-label">QUESTION</span><span class="flip-hint">↻ Click to flip</span></span>
+          <span class="card-content">
+            <span class="card-icon" id="card-icon">⌘</span>
+            <span class="card-text" id="card-text">What does print() do in Python?</span>
+          </span>
+          <span class="card-bottom"><span id="card-category">PYTHON BASICS</span><span class="card-dots">•••</span></span>
+        </button>
+
+        <div class="controls">
+          <button id="prev-btn" class="button secondary" aria-label="Previous card">← Previous</button>
+          <button id="flip-btn" class="button primary">Reveal answer</button>
+          <button id="next-btn" class="button secondary">Next →</button>
+        </div>
+
+        <div class="confidence">
+          <p>How well did you know it?</p>
+          <div class="rating-buttons">
+            <button class="rating again" data-rating="again">↺ <span>Study again</span></button>
+            <button class="rating got-it" data-rating="known">✓ <span>Got it</span></button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="stat-card"><span class="stat-icon">✓</span><div><p>Known</p><strong id="known-count">0</strong></div></div>
+      <div class="stat-card"><span class="stat-icon">↺</span><div><p>Study again</p><strong id="again-count">0</strong></div></div>
+      <div class="stat-card"><span class="stat-icon">◷</span><div><p>Cards remaining</p><strong id="remaining-count">10</strong></div></div>
+    </section>
+    <footer>Built for focused learning. Your progress stays in this browser.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
